@@ -23,7 +23,7 @@ const Navbar = () => {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? 'bg-white/90 backdrop-blur-xl shadow-[0_1px_0_rgba(0,0,0,0.06)]'
+            ? 'bg-[#050508]/90 backdrop-blur-xl border-b border-white/[0.04]'
             : 'bg-transparent'
         }`}
       >
@@ -34,7 +34,7 @@ const Navbar = () => {
               <img
                 src={companyInfo.logo}
                 alt={companyInfo.name}
-                className="h-10 w-auto"
+                className="h-10 w-auto brightness-0 invert"
               />
             </Link>
 
@@ -46,10 +46,8 @@ const Navbar = () => {
                   to={link.path}
                   className={`px-4 py-2 text-[13px] font-medium tracking-wide transition-colors duration-300 rounded-full ${
                     location.pathname === link.path
-                      ? scrolled ? 'text-black' : 'text-white'
-                      : scrolled
-                      ? 'text-gray-500 hover:text-black'
-                      : 'text-white/60 hover:text-white'
+                      ? 'text-cyan-400'
+                      : 'text-white/50 hover:text-white/80'
                   }`}
                 >
                   {link.label}
@@ -61,20 +59,14 @@ const Navbar = () => {
             <div className="flex items-center gap-4">
               <Link
                 to="/contact"
-                className={`hidden lg:inline-flex items-center px-5 py-2.5 text-[13px] font-medium rounded-full transition-all duration-300 ${
-                  scrolled
-                    ? 'bg-black text-white hover:bg-gray-800'
-                    : 'bg-white text-black hover:bg-gray-100'
-                }`}
+                className="hidden lg:inline-flex items-center px-5 py-2.5 text-[13px] font-medium rounded-full transition-all duration-300 bg-white text-black hover:shadow-[0_0_20px_-5px_hsla(180,100%,50%,0.3)]"
               >
                 Book a Consultation
               </Link>
 
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className={`lg:hidden p-2 rounded-full transition-colors ${
-                  scrolled ? 'text-black' : 'text-white'
-                }`}
+                className="lg:hidden p-2 rounded-full text-white/70 transition-colors"
               >
                 {mobileOpen ? <X size={22} /> : <Menu size={22} />}
               </button>
@@ -85,18 +77,18 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 z-40 bg-white transition-all duration-500 lg:hidden ${
+        className={`fixed inset-0 z-40 transition-all duration-500 lg:hidden ${
           mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
-        style={{ paddingTop: '72px' }}
+        style={{ paddingTop: '72px', background: 'rgba(5, 5, 8, 0.98)', backdropFilter: 'blur(20px)' }}
       >
         <div className="flex flex-col px-8 py-8 gap-1">
           {navLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
-              className={`py-3 text-[18px] font-medium transition-colors border-b border-gray-100 ${
-                location.pathname === link.path ? 'text-black' : 'text-gray-400 hover:text-black'
+              className={`py-3 text-[18px] font-medium transition-colors border-b border-white/[0.04] ${
+                location.pathname === link.path ? 'text-cyan-400' : 'text-white/40 hover:text-white'
               }`}
             >
               {link.label}
@@ -104,7 +96,7 @@ const Navbar = () => {
           ))}
           <Link
             to="/contact"
-            className="mt-6 inline-flex items-center justify-center px-6 py-3 bg-black text-white text-[15px] font-medium rounded-full"
+            className="mt-6 inline-flex items-center justify-center px-6 py-3 bg-white text-black text-[15px] font-medium rounded-full"
           >
             Book a Consultation
           </Link>
