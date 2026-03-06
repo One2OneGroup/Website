@@ -10,6 +10,8 @@ import BPO from './pages/BPO';
 import Capabilities from './pages/Capabilities';
 import Industries from './pages/Industries';
 import Contact from './pages/Contact';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -33,6 +35,8 @@ function App() {
           <Route path="/capabilities" element={<Capabilities />} />
           <Route path="/industries" element={<Industries />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
         </Routes>
         <Footer />
       </BrowserRouter>

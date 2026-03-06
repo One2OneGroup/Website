@@ -106,8 +106,8 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} {companyInfo.fullName}. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <span className="text-white/20 text-xs hover:text-white/40 cursor-pointer transition-colors">Privacy Policy</span>
-            <span className="text-white/20 text-xs hover:text-white/40 cursor-pointer transition-colors">Terms of Service</span>
+            <Link to="/privacy-policy" className="text-white/20 text-xs hover:text-white/40 transition-colors">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="text-white/20 text-xs hover:text-white/40 transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
