@@ -23,7 +23,7 @@ client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
 # Notification email
-NOTIFICATION_EMAIL = "tylor@theone2onegroup.co.za"
+NOTIFICATION_EMAIL = os.environ.get('NOTIFICATION_EMAIL', 'tylor@theone2onegroup.co.za')
 
 # SMTP config (optional - if configured, emails will be sent)
 SMTP_HOST = os.environ.get('SMTP_HOST', '')
@@ -172,7 +172,7 @@ async def create_contact_submission(input_data: ContactSubmissionCreate):
 @api_router.get("/contact", response_model=List[ContactSubmission])
 async def get_contact_submissions():
     """Retrieve all contact submissions."""
-    submissions = await db.contact_submissions.find({}, {"_id": 0}).to_list(1000)
+    submissions = await db.contact_submissions.find({}, {"_id": 0}).sort("timestamp", -1).to_list(100)
     for sub in submissions:
         if isinstance(sub.get('timestamp'), str):
             sub['timestamp'] = datetime.fromisoformat(sub['timestamp'])
@@ -191,7 +191,7 @@ async def create_status_check(input: StatusCheckCreate):
 
 @api_router.get("/status", response_model=List[StatusCheck])
 async def get_status_checks():
-    status_checks = await db.status_checks.find({}, {"_id": 0}).to_list(1000)
+    status_checks = await db.status_checks.find({}, {"_id": 0}).sort("timestamp", -1).to_list(100)
     for check in status_checks:
         if isinstance(check['timestamp'], str):
             check['timestamp'] = datetime.fromisoformat(check['timestamp'])
