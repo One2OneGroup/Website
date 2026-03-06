@@ -5,7 +5,7 @@ export const companyInfo = {
   phone: "021 100 3181",
   email: "tylor@theone2onegroup.co.za",
   address: "5 Timber Way, Bergvliet, Cape Town, South Africa, 7945",
-  logo: "https://customer-assets.emergentagent.com/job_o21-transform/artifacts/i6if6sjv_Web%20logo.png",
+  logo: "https://customer-assets.emergentagent.com/job_o21-transform/artifacts/hxp0wx2r_one%202%20one%20Black%20Logo%20No%20Background.png",
   tagline: "Private Investments | Property | Energy",
 };
 
