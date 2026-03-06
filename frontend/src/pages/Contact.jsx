@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { companyInfo, services } from '../data/mockData';
 import AnimatedSection from '../components/shared/AnimatedSection';
-import { Phone, Mail, MapPin, ArrowRight, Check, Send } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowRight, Check, Send, Loader2 } from 'lucide-react';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +17,7 @@ const Contact = () => {
     message: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
 
   const validate = () => {
@@ -25,14 +30,27 @@ const Contact = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validate()) {
-      // Mock submission
-      setSubmitted(true);
-      setTimeout(() => {
+      setSubmitting(true);
+      try {
+        await axios.post(`${API}/contact`, {
+          full_name: formData.fullName,
+          company_name: formData.companyName,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          message: formData.message,
+        });
+        setSubmitted(true);
         setFormData({ fullName: '', companyName: '', email: '', phone: '', service: '', message: '' });
-      }, 500);
+      } catch (err) {
+        console.error('Submission error:', err);
+        setErrors({ submit: 'Failed to submit enquiry. Please try again.' });
+      } finally {
+        setSubmitting(false);
+      }
     }
   };
 
@@ -218,11 +236,18 @@ const Contact = () => {
                       {errors.message && <p className="text-red-500 text-[12px] mt-1">{errors.message}</p>}
                     </div>
 
+                    {errors.submit && <p className="text-red-500 text-[13px] mb-4">{errors.submit}</p>}
+
                     <button
                       type="submit"
-                      className="btn-primary inline-flex items-center gap-2.5 px-8 py-4 bg-black text-white text-[14px] font-semibold rounded-full"
+                      disabled={submitting}
+                      className="btn-primary inline-flex items-center gap-2.5 px-8 py-4 bg-black text-white text-[14px] font-semibold rounded-full disabled:opacity-60"
                     >
-                      Send Enquiry <Send size={16} />
+                      {submitting ? (
+                        <>Submitting <Loader2 size={16} className="animate-spin" /></>
+                      ) : (
+                        <>Send Enquiry <Send size={16} /></>
+                      )}
                     </button>
                   </form>
                 )}

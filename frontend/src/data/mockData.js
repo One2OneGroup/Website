@@ -3,9 +3,9 @@ export const companyInfo = {
   fullName: "One 2 One Group (Pty) Ltd",
   type: "Private Company",
   phone: "021 100 3181",
-  email: "info@one2onegroup.co.za",
+  email: "tylor@theone2onegroup.co.za",
   address: "5 Timber Way, Bergvliet, Cape Town, South Africa, 7945",
-  logo: "https://customer-assets.emergentagent.com/job_44b70250-c1a6-48f2-a5b6-6d8a19d1cf49/artifacts/vmar5khy_Logo%201.png",
+  logo: "https://customer-assets.emergentagent.com/job_o21-transform/artifacts/i6if6sjv_Web%20logo.png",
   tagline: "Private Investments | Property | Energy",
 };
 
