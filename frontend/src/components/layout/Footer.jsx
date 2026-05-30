@@ -11,6 +11,7 @@ const Footer = () => {
     { label: 'Property Valuations', path: '/services' },
     { label: 'Energy Consulting', path: '/services' },
     { label: 'BPO Services', path: '/bpo' },
+    { label: 'Construction Consulting', path: '/services' },
   ];
 
   const companyLinks = [

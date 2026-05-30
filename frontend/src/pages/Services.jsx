@@ -4,10 +4,10 @@ import { services } from '../data/mockData';
 import AnimatedSection from '../components/shared/AnimatedSection';
 import {
   ArrowRight, Brain, Globe, Smartphone, Building2, Zap, Settings,
-  Check, ChevronDown, ChevronUp
+  Check, ChevronDown, ChevronUp, HardHat
 } from 'lucide-react';
 
-const iconMap = { Brain, Globe, Smartphone, Building2, Zap, Settings };
+const iconMap = { Brain, Globe, Smartphone, Building2, Zap, Settings, HardHat };
 
 const ServiceDetail = ({ service, index }) => {
   const [expanded, setExpanded] = useState(false);
@@ -107,7 +107,7 @@ const Services = () => {
           <AnimatedSection>
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-cyan-400/50 mb-4 block">Our Services</span>
             <h1 className="text-4xl md:text-5xl lg:text-[60px] font-bold text-white tracking-tight leading-[1.08] max-w-3xl mb-6">
-              Six Disciplines. <span className="text-gradient">One Integrated Partner.</span>
+              Seven Disciplines. <span className="text-gradient">One Integrated Partner.</span>
             </h1>
             <p className="text-white/40 text-lg md:text-xl leading-relaxed max-w-2xl">
               From AI consulting and full-stack development to property valuations, energy advisory, and business process outsourcing — we deliver expertise that drives results.

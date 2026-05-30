@@ -94,6 +94,16 @@ export const services = [
     features: ["Customer Support Operations", "Back-Office Functions", "Administration Support", "Workflow Management", "Process Optimisation", "Operational Scalability"],
     benefits: ["Reduce operational overhead", "Maintain consistent service quality", "Scale operations without increasing headcount", "Free internal teams for strategic work"],
     idealClient: "Growing businesses and enterprises seeking to optimise operations through professional outsourced support."
+  },
+  {
+    id: "construction-consulting",
+    icon: "HardHat",
+    title: "Construction Consulting",
+    shortDesc: "Expert construction advisory, project management support, and strategic consulting for developments ranging from residential builds to large-scale commercial infrastructure.",
+    fullDesc: "Our construction consulting services provide end-to-end advisory and project oversight for organisations undertaking building and infrastructure projects. We combine deep industry knowledge with disciplined project management to ensure developments are delivered on time, within budget, and to the highest standards of quality and compliance.",
+    features: ["Project Feasibility & Planning", "Construction Project Management", "Cost Estimation & Budget Control", "Regulatory Compliance & Approvals", "Contractor & Vendor Management", "Quality Assurance & Site Oversight"],
+    benefits: ["Reduce project risk through expert planning and oversight", "Ensure regulatory compliance across all project phases", "Optimise construction costs without compromising quality", "Accelerate project timelines with structured management"],
+    idealClient: "Property developers, corporate entities, government bodies, and investors requiring professional construction advisory and project management support."
   }
 ];
 

@@ -9,10 +9,11 @@ import AnimatedSection, { AnimatedCounter } from '../components/shared/AnimatedS
 import {
   ArrowRight, ArrowUpRight, Brain, Globe, Smartphone,
   Building2, Zap, Settings, ChevronRight, Quote,
-  Layers, Users, Lightbulb, Award, Shield, Target, TrendingUp
+  Layers, Users, Lightbulb, Award, Shield, Target, TrendingUp,
+  HardHat
 } from 'lucide-react';
 
-const iconMap = { Brain, Globe, Smartphone, Building2, Zap, Settings };
+const iconMap = { Brain, Globe, Smartphone, Building2, Zap, Settings, HardHat };
 
 /* ─── Hero Section ─── */
 const HeroSection = () => {
@@ -185,7 +186,7 @@ const ServicesOverview = () => (
         <div className="text-center mb-16">
           <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-cyan-400/50 mb-4 block">What We Do</span>
           <h2 className="text-3xl md:text-4xl lg:text-[44px] font-bold text-white tracking-tight leading-tight">
-            Integrated Solutions Across<br className="hidden md:block" /> <span className="text-gradient">Six Core Disciplines</span>
+            Integrated Solutions Across<br className="hidden md:block" /> <span className="text-gradient">Seven Core Disciplines</span>
           </h2>
         </div>
       </AnimatedSection>
