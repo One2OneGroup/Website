@@ -30,8 +30,8 @@ const About = () => {
         <div className="section-divider" />
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 py-20">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {aboutMetrics.map((metric, i) => (
-              <AnimatedSection key={i} delay={i * 0.1}>
+            {aboutMetrics.map((metric) => (
+              <AnimatedSection key={metric.label} delay={0.1}>
                 <div className="metric-card p-8 text-center">
                   <div className="text-4xl md:text-5xl font-bold text-white mb-2">
                     <AnimatedCounter end={metric.value} suffix={metric.suffix} />
@@ -86,7 +86,7 @@ const About = () => {
             {aboutPage.values.map((value, i) => {
               const Icon = valueIcons[i];
               return (
-                <AnimatedSection key={i} delay={i * 0.08}>
+                <AnimatedSection key={value.title} delay={0.08}>
                   <div className="glass-card p-8 h-full">
                     <div className="w-10 h-10 rounded-lg bg-cyan-500/[0.06] border border-cyan-500/10 flex items-center justify-center mb-5">
                       <Icon size={20} className="text-cyan-400/50" />
@@ -124,8 +124,8 @@ const About = () => {
                   { step: '02', title: 'Strategy & Design', desc: 'Craft a tailored solution architecture aligned with your objectives.' },
                   { step: '03', title: 'Execution & Delivery', desc: 'Implement with precision, transparency, and rigorous quality control.' },
                   { step: '04', title: 'Optimisation & Scale', desc: 'Continuously refine, measure impact, and scale what works.' },
-                ].map((item, i) => (
-                  <div key={i} className="glow-card flex gap-6 items-start p-6">
+                ].map((item) => (
+                  <div key={item.step} className="glow-card flex gap-6 items-start p-6">
                     <span className="text-[32px] font-bold text-cyan-400/15 shrink-0 w-12">{item.step}</span>
                     <div>
                       <h4 className="text-[15px] font-semibold text-white mb-1">{item.title}</h4>

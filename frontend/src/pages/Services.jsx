@@ -29,8 +29,8 @@ const ServiceDetail = ({ service, index }) => {
               <p className="text-white/40 text-[16px] leading-relaxed mb-8">{service.fullDesc}</p>
 
               <div className="grid grid-cols-2 gap-3 mb-8">
-                {service.features.map((feature, i) => (
-                  <div key={i} className="flex items-start gap-2.5">
+                {service.features.map((feature) => (
+                  <div key={feature} className="flex items-start gap-2.5">
                     <div className="w-5 h-5 rounded-full bg-cyan-500/10 flex items-center justify-center shrink-0 mt-0.5">
                       <Check size={12} className="text-cyan-400/60" />
                     </div>
@@ -52,8 +52,8 @@ const ServiceDetail = ({ service, index }) => {
                   <div>
                     <h4 className="text-[14px] font-semibold text-cyan-400/50 mb-3 uppercase tracking-wider">Key Benefits</h4>
                     <div className="space-y-2">
-                      {service.benefits.map((benefit, i) => (
-                        <div key={i} className="flex items-start gap-2.5">
+                      {service.benefits.map((benefit) => (
+                        <div key={benefit} className="flex items-start gap-2.5">
                           <div className="w-1.5 h-1.5 rounded-full bg-cyan-400/40 mt-2 shrink-0" />
                           <span className="text-[14px] text-white/40 leading-relaxed">{benefit}</span>
                         </div>

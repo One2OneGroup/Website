@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { navLinks, companyInfo } from '../../data/mockData';
 import { Menu, X } from 'lucide-react';
@@ -8,15 +8,18 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+  const handleScroll = useCallback(() => {
+    setScrolled(window.scrollY > 50);
   }, []);
 
   useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [handleScroll]);
+
+  useEffect(() => {
     setMobileOpen(false);
-  }, [location]);
+  }, [location.pathname]);
 
   return (
     <>
@@ -29,7 +32,6 @@ const Navbar = () => {
       >
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-[72px]">
-            {/* Logo */}
             <Link to="/" className="flex items-center gap-3 shrink-0">
               <img
                 src={companyInfo.logo}
@@ -38,7 +40,6 @@ const Navbar = () => {
               />
             </Link>
 
-            {/* Desktop Nav */}
             <div className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) => (
                 <Link
@@ -55,7 +56,6 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* CTA + Mobile Toggle */}
             <div className="flex items-center gap-4">
               <Link
                 to="/contact"
@@ -65,7 +65,7 @@ const Navbar = () => {
               </Link>
 
               <button
-                onClick={() => setMobileOpen(!mobileOpen)}
+                onClick={() => setMobileOpen((prev) => !prev)}
                 className="lg:hidden p-2 rounded-full text-white/70 transition-colors"
               >
                 {mobileOpen ? <X size={22} /> : <Menu size={22} />}
@@ -75,7 +75,6 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile Menu */}
       <div
         className={`fixed inset-0 z-40 transition-all duration-500 lg:hidden ${
           mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
