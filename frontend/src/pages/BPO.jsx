@@ -62,8 +62,8 @@ const BPO = () => {
             </div>
           </AnimatedSection>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {bpoFeatures.map((feature, i) => (
-              <AnimatedSection key={i} delay={i * 0.08}>
+            {bpoFeatures.map((feature) => (
+              <AnimatedSection key={feature.title} delay={0.08}>
                 <div className="service-card-futuristic p-8 h-full">
                   <h3 className="text-[17px] font-semibold text-white mb-3">{feature.title}</h3>
                   <p className="text-white/30 text-[14px] leading-relaxed">{feature.description}</p>
@@ -90,8 +90,8 @@ const BPO = () => {
             </AnimatedSection>
             <AnimatedSection delay={0.1}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {functions.map((fn, i) => (
-                  <div key={i} className="flex items-center gap-3 glow-card px-5 py-3.5">
+                {functions.map((fn) => (
+                  <div key={fn} className="flex items-center gap-3 glow-card px-5 py-3.5">
                     <Check size={14} className="text-cyan-400/40 shrink-0" />
                     <span className="text-[13px] text-white/45 font-medium">{fn}</span>
                   </div>
@@ -113,10 +113,10 @@ const BPO = () => {
             </div>
           </AnimatedSection>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {benefits.map((benefit, i) => {
+            {benefits.map((benefit) => {
               const Icon = benefit.icon;
               return (
-                <AnimatedSection key={i} delay={i * 0.08}>
+                <AnimatedSection key={benefit.title} delay={0.08}>
                   <div className="glass-card p-8 h-full">
                     <div className="w-10 h-10 rounded-lg bg-cyan-500/[0.06] border border-cyan-500/10 flex items-center justify-center mb-5">
                       <Icon size={20} className="text-cyan-400/50" />
@@ -143,8 +143,8 @@ const BPO = () => {
             </div>
           </AnimatedSection>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {engagementModel.map((item, i) => (
-              <AnimatedSection key={i} delay={i * 0.1}>
+            {engagementModel.map((item) => (
+              <AnimatedSection key={item.step} delay={0.1}>
                 <div className="glass-card p-8 h-full">
                   <span className="text-3xl font-bold text-cyan-400/10 block mb-4">{item.step}</span>
                   <h3 className="text-white text-[17px] font-semibold mb-3">{item.title}</h3>

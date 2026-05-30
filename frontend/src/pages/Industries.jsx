@@ -36,7 +36,7 @@ const Industries = () => {
             {industries.map((industry, i) => {
               const Icon = industryIcons[i];
               return (
-                <AnimatedSection key={industry.id} delay={i * 0.08}>
+                <AnimatedSection key={industry.id} delay={0.08}>
                   <div className="service-card-futuristic group p-8 h-full flex flex-col">
                     <div className="w-12 h-12 rounded-xl bg-cyan-500/[0.06] border border-cyan-500/10 flex items-center justify-center mb-6 group-hover:bg-cyan-500/10 group-hover:border-cyan-500/20 transition-all duration-500">
                       <Icon size={22} className="text-cyan-400/50 group-hover:text-cyan-300 transition-colors duration-500" />
@@ -44,8 +44,8 @@ const Industries = () => {
                     <h3 className="text-[18px] font-semibold text-white mb-3 tracking-tight">{industry.title}</h3>
                     <p className="text-white/30 text-[14px] leading-relaxed mb-6 flex-1">{industry.description}</p>
                     <div className="flex flex-wrap gap-2 mb-6">
-                      {industry.services.map((s, j) => (
-                        <span key={j} className="px-3 py-1.5 bg-white/[0.03] border border-white/[0.06] rounded-full text-[11px] text-white/40 font-medium">{s}</span>
+                      {industry.services.map((s) => (
+                        <span key={s} className="px-3 py-1.5 bg-white/[0.03] border border-white/[0.06] rounded-full text-[11px] text-white/40 font-medium">{s}</span>
                       ))}
                     </div>
                     <Link to="/contact" className="inline-flex items-center gap-1.5 text-cyan-400/60 text-[13px] font-medium group-hover:gap-3 transition-all duration-300">
@@ -83,8 +83,8 @@ const Industries = () => {
                   { value: '150+', label: 'Projects Delivered' },
                   { value: '98%', label: 'Client Satisfaction' },
                   { value: '12+', label: 'Service Capabilities' },
-                ].map((stat, i) => (
-                  <div key={i} className="metric-card p-8 text-center">
+                ].map((stat) => (
+                  <div key={stat.label} className="metric-card p-8 text-center">
                     <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
                     <p className="text-white/35 text-[13px] font-medium">{stat.label}</p>
                   </div>
